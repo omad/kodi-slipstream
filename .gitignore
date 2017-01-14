@@ -61,3 +61,6 @@ target/
 *.zip
 
 cookies.txt
+
+# vim swap files
+*.swp
