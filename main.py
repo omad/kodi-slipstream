@@ -58,6 +58,46 @@ VIDEOS = {'Animals': [{'name': 'Crab',
                       'genre': 'Food'}
                      ]}
 
+QUERIES = {
+    'BrowseQuery': """query BrowseQuery {
+    spotlightFilms {
+        title
+        id
+        bg_image
+        logline
+        year_released
+        url
+        featureVideo {
+            url
+            __typename
+        }
+        runtime
+        __typename
+    }
+    featuredPlaylists {
+        id
+        title
+        films {
+            id
+            title
+            poster
+            url
+            runtime
+            logline
+            __typename
+        }
+        __typename
+    }
+}"""
+
+def get_graphql_query(query_name, **kwargs):
+    return {
+        'query': QUERIES[query_name],
+        'operationName': query_name
+        }
+
+
+
 
 def get_url(**kwargs):
     """
